@@ -26,11 +26,11 @@ class LobbyPic extends StatelessWidget {
     return Row(
       children: [
         Image.asset(
-          "assets/lobby_title.PNG",
+          "assets/lobby_title.png",
           width: 50,
         ),
         Image.asset(
-          "assets/lobby_hanems.PNG",
+          "assets/lobby_hanems.png",
           width: 25,
         ),
       ],
