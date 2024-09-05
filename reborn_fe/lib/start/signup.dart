@@ -31,99 +31,177 @@ class _LobbySignupState extends State<LobbySignup> {
         toolbarHeight: screenHeight * 0.035, // AppBar의 높이 조정
       ),
       backgroundColor: const Color(0xFFc7e8f2),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/lobby_title.png",
-                  height: screenHeight * 0.09,
-                ),
-                Image.asset(
-                  "assets/level4_happy.png",
-                  height: screenHeight * 0.09,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Container(
-              width: screenWidth * 0.9,
-              height: screenHeight * 0.71,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/lobby_title.png",
+                    height: screenHeight * 0.09,
+                  ),
+                  Image.asset(
+                    "assets/level4_happy.png",
+                    height: screenHeight * 0.09,
+                  ),
+                ],
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Center(
-                      child: Text(
-                        '회원가입',
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w500,
+              const SizedBox(
+                height: 5,
+              ),
+              Container(
+                width: screenWidth * 0.9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Center(
+                        child: Text(
+                          '회원가입',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      '아이디',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              labelText: '아이디를 입력하세요.',
-                              hintText: '아이디',
-                              border: OutlineInputBorder(),
-                              filled: true,
-                              fillColor: Colors.white,
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        '아이디',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                labelText: '아이디를 입력하세요.',
+                                hintText: '아이디',
+                                border: OutlineInputBorder(),
+                                filled: true,
+                                fillColor: Colors.white,
+                              ),
                             ),
                           ),
+                          const SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: _checkjoogbok,
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 20),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              foregroundColor: Colors.white,
+                              backgroundColor: const Color(0xFF16BECF),
+                            ),
+                            child: const Text(
+                              '중복확인',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        '비밀번호',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        decoration: const InputDecoration(
+                          labelText: '비밀번호를 입력하세요.',
+                          hintText: '비밀번호',
+                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white,
                         ),
-                        const SizedBox(width: 10),
-                        ElevatedButton(
-                          onPressed: _checkjoogbok,
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 20),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            foregroundColor: Colors.white,
-                            backgroundColor: const Color(0xFF16BECF),
-                          ),
-                          child: const Text(
-                            '중복확인',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        '비밀번호 확인',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        decoration: const InputDecoration(
+                          labelText: '비밀번호를 다시 입력하세요.',
+                          hintText: '비밀번호',
+                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white,
                         ),
-                      ],
-                    ),
-                    // 여기에 추가적인 입력 필드 및 버튼들을 추가할 수 있습니다.
-                  ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        '성함',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        decoration: const InputDecoration(
+                          labelText: '성함을 입력하세요.',
+                          hintText: '성함',
+                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        '전화번호',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        decoration: const InputDecoration(
+                          labelText: '전화번호를 입력하세요.',
+                          hintText: '전화번호',
+                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                      ),
+
+                      // 여기에 추가적인 입력 필드 및 버튼들을 추가할 수 있습니다.
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
