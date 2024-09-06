@@ -275,6 +275,7 @@ class _LobbyLoginState extends State<LobbyLogin> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFc7e8f2),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 35),
@@ -381,7 +382,7 @@ class _LobbyLoginState extends State<LobbyLogin> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LobbySignup()),
+                                  builder: (context) => const LobbySignup()),
                             );
                           },
                           child: const Text(

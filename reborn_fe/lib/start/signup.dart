@@ -11,6 +11,10 @@ void _checkjoogbok() {
   // 아이디 중복 체크 로직을 여기에 추가하세요.
 }
 
+void _newuser() {
+  // 새 회원 만드는 로직 추가해야함
+}
+
 class _LobbySignupState extends State<LobbySignup> {
   @override
   Widget build(BuildContext context) {
@@ -128,8 +132,8 @@ class _LobbySignupState extends State<LobbySignup> {
                       const SizedBox(
                         height: 10,
                       ),
-                      TextField(
-                        decoration: const InputDecoration(
+                      const TextField(
+                        decoration: InputDecoration(
                           labelText: '비밀번호를 입력하세요.',
                           hintText: '비밀번호',
                           border: OutlineInputBorder(),
@@ -147,8 +151,8 @@ class _LobbySignupState extends State<LobbySignup> {
                       const SizedBox(
                         height: 10,
                       ),
-                      TextField(
-                        decoration: const InputDecoration(
+                      const TextField(
+                        decoration: InputDecoration(
                           labelText: '비밀번호를 다시 입력하세요.',
                           hintText: '비밀번호',
                           border: OutlineInputBorder(),
@@ -166,8 +170,8 @@ class _LobbySignupState extends State<LobbySignup> {
                       const SizedBox(
                         height: 10,
                       ),
-                      TextField(
-                        decoration: const InputDecoration(
+                      const TextField(
+                        decoration: InputDecoration(
                           labelText: '성함을 입력하세요.',
                           hintText: '성함',
                           border: OutlineInputBorder(),
@@ -185,8 +189,8 @@ class _LobbySignupState extends State<LobbySignup> {
                       const SizedBox(
                         height: 10,
                       ),
-                      TextField(
-                        decoration: const InputDecoration(
+                      const TextField(
+                        decoration: InputDecoration(
                           labelText: '전화번호를 입력하세요.',
                           hintText: '전화번호',
                           border: OutlineInputBorder(),
@@ -197,6 +201,31 @@ class _LobbySignupState extends State<LobbySignup> {
 
                       // 여기에 추가적인 입력 필드 및 버튼들을 추가할 수 있습니다.
                     ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: 250,
+                child: ElevatedButton(
+                  onPressed: _newuser,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    foregroundColor: Colors.white,
+                    backgroundColor: const Color(0xFF16BECF),
+                  ),
+                  child: const Text(
+                    '회원가입',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
