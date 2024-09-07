@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reborn_fe/education/education_screen.dart';
 import 'package:reborn_fe/job/job_screen.dart';
-//import 'package:reborn_fe/walk/walk_screen.dart';
+import 'package:reborn_fe/walk/walk_screen.dart';
 import 'package:reborn_fe/mypage/mypage_screen.dart';
 
 class BottomcMenuBar extends StatelessWidget {
@@ -56,13 +56,12 @@ class BottomcMenuBar extends StatelessWidget {
           Column(
             children: [
               GestureDetector(
-                // onTap: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const KakaoMapView()),
-                //   );
-                // },
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StepCounter()),
+                  );
+                },
                 child: Image.asset(
                   'assets/appbar_walk.png',
                   width: 50,
