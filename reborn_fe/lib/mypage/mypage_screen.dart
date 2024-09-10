@@ -8,7 +8,10 @@ class MyPageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('내 프로필'),
+        title: const Text(
+          '내 프로필',
+          style: TextStyle(fontSize: 25),
+        ),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255), // AppBar 색상
       ),
       backgroundColor: const Color(0xFFC7E8F2),
@@ -25,6 +28,10 @@ class MyPageScreen extends StatelessWidget {
               _buildGraphSection(),
               const SizedBox(height: 6.0),
               _buildAttendanceSection(), // 출석부 섹션 추가
+              const SizedBox(height: 6.0),
+              _buildEducationSection(),
+              const SizedBox(height: 6.0),
+              _buildWorkSection(),
               const SizedBox(height: 16.0),
               _buildEmergencyButton(context),
             ],
@@ -41,14 +48,15 @@ class MyPageScreen extends StatelessWidget {
       child: const Padding(
         padding: EdgeInsets.all(16.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
               radius: 40,
               backgroundImage:
                   AssetImage('assets/profile_image.png'), // 프로필 이미지 경로
             ),
-            SizedBox(width: 16.0),
+            SizedBox(width: 30.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +66,7 @@ class MyPageScreen extends StatelessWidget {
                       Text(
                         'Lv. 3 김용기',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -66,9 +74,18 @@ class MyPageScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 8.0),
-                  Text('📅 1973.02.14.'),
-                  Text('📞 010 7639 9641'),
-                  Text('📍 서울 중구 을지로11길 23'),
+                  Text(
+                    '📅 1973.02.14.',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    '📞 010 7639 9641',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    '📍 서울 중구 을지로11길 23',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ],
               ),
             ),
@@ -86,29 +103,38 @@ class MyPageScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start, // 각 Column의 시작점에 맞추기
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 40.0), // 여백 추가
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
                       'MY 리워드',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     const SizedBox(height: 8.0),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
                           'assets/ReBorn_icon.png', // 이미지 경로
-                          height: 24, // 원하는 크기로 설정
+                          height: 35, // 원하는 크기로 설정
                         ),
                         const SizedBox(width: 8.0),
-                        const Text('x 4'),
+                        const Text(
+                          'x 4',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ],
                     ),
-                    const Text('2,000원'),
+                    const Text(
+                      '2,000원',
+                      style: TextStyle(fontSize: 18),
+                    ),
                     const SizedBox(height: 8.0),
                     ElevatedButton(
                       onPressed: () {
@@ -120,7 +146,10 @@ class MyPageScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: const Text('환전'),
+                      child: const Text(
+                        '환전',
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
                   ],
                 ),
@@ -128,15 +157,23 @@ class MyPageScreen extends StatelessWidget {
             ),
             const Expanded(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('MY 카드', style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text('MY 카드',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                   SizedBox(height: 8.0),
                   Image(
                     image: AssetImage('assets/card_image.png'), // 카드 이미지 경로
-                    height: 50,
+                    height: 70,
                   ),
-                  Text('413,830원'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    '413,830원',
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ],
               ),
             ),
@@ -158,7 +195,7 @@ class MyPageScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('최근 전력 사용',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16.0),
             Container(
               height: 100,
@@ -238,6 +275,152 @@ class MyPageScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      ),
+    );
+  }
+
+  Widget _buildEducationSection() {
+    return Card(
+      elevation: 4.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "내가 참여한 교육",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    "assets/education_image.png",
+                    height: 120,
+                  ),
+                ),
+                const SizedBox(
+                  width: 25,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "클라우드 기초 교육",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    const Text(
+                      "2024.08.02 ~ 2024.09.04",
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 16), // 텍스트 주위에 패딩을 추가
+                      decoration: BoxDecoration(
+                        color: Colors.orange, // 버튼 배경색
+                        borderRadius: BorderRadius.circular(8), // 둥근 모서리
+                      ),
+                      child: const Text(
+                        "교육종료",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white, // 텍스트 색상
+                          fontWeight: FontWeight.bold, // 텍스트 굵기
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWorkSection() {
+    return Card(
+      elevation: 4.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "내가 참여한 일자리",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    "assets/job_image.png",
+                    height: 120,
+                  ),
+                ),
+                const SizedBox(
+                  width: 25,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "미술치료 강사",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    const Text(
+                      "2024.08.20 ~ 2024.09.10",
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 16), // 텍스트 주위에 패딩을 추가
+                      decoration: BoxDecoration(
+                        color: Colors.green, // 버튼 배경색
+                        borderRadius: BorderRadius.circular(8), // 둥근 모서리
+                      ),
+                      child: const Text(
+                        "참여중",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white, // 텍스트 색상
+                          fontWeight: FontWeight.bold, // 텍스트 굵기
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
