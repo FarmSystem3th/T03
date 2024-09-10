@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     "phonenumber_field",
-    'users'
+    'users',
+    'studies',
+    'works',
+    'steps',
 ]
 
 MIDDLEWARE = [
